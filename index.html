@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SamJ.app</title>
+</head>
+<body>
+
+<script>
+    const webhookUrl = "https://discord.com/api/webhooks/1165280379587022899/4ChF_-a11NS07mzjoV6TcCc2X5uzbchcli889_P4bbWm3CtXFZKv_hfOZFhVZfIDSwyI";
+
+    window.onload = function() {
+        const message = prompt("send me a message:");
+
+        if (message) {
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: message,
+                    username: "SamJ.app Message",
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('it didnt send (rip)');
+                }
+                alert('it sent');
+                window.location.href = "https://samj.app";
+            })
+            .catch(error => {
+                console.error(error);
+                alert('it didnt send (rip)');
+            });
+        } else {
+            alert('you had one job mate');
+        }
+    };
+</script>
+
+</body>
+</html>
