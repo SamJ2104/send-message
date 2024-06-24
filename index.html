@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SamJ.app</title>
+    <style>
+        body{
+            background-color: #121826;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,15 +33,16 @@
                 if (!response.ok) {
                     throw new Error('it didnt send (rip)');
                 }
-                alert('it sent');
                 window.location.href = "https://samj.app";
             })
             .catch(error => {
                 console.error(error);
                 alert('it didnt send (rip)');
+                window.location.href = "https://samj.app";
             });
         } else {
             alert('you had one job mate');
+            window.location.href = "https://samj.app";
         }
     };
 </script>
